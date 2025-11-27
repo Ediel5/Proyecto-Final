@@ -65,4 +65,5 @@ Construir una aplicación web que permita:
 
    ```bash
    git clone https://github.com/usuario/proyecto-solicitudes.git
-   cd proyecto-solicitudes
+   cd Proyecto_Final
+   
