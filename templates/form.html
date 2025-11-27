@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% if modo == "editar" %}Editar solicitud{% else %}Nueva solicitud{% endif %}
+{% endblock %}
+
+{% block content %}
+<h1 class="h3 mb-3">
+    {% if modo == "editar" %}Editar solicitud{% else %}Nueva solicitud{% endif %}
+</h1>
+
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label">Folio *</label>
+        <input type="text" name="folio" class="form-control"
+               value="{{ solicitud.folio if solicitud else '' }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Fecha *</label>
+        <input type="date" name="fecha" class="form-control"
+               value="{{ solicitud.fecha if solicitud else '' }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Solicitante *</label>
+        <input type="text" name="solicitante" class="form-control"
+               value="{{ solicitud.solicitante if solicitud else '' }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Tipo *</label>
+        <input type="text" name="tipo" class="form-control"
+               value="{{ solicitud.tipo if solicitud else '' }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Estado *</label>
+        <input type="text" name="estado" class="form-control"
+               value="{{ solicitud.estado if solicitud else '' }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Descripción</label>
+        <textarea name="descripcion" class="form-control" rows="3">{{ solicitud.descripcion if solicitud else '' }}</textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Guardar
+    </button>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}
